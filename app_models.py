@@ -110,12 +110,24 @@ class WorldbookEntryPayload(BaseModel):
     secondary_trigger: str = ""
     content: str = ""
     enabled: bool = True
+
+    # 旧字段兼容
     priority: int = 100
+
     case_sensitive: bool = False
     whole_word: bool = False
     match_mode: str = "any"
     secondary_mode: str = "all"
     comment: str = ""
+
+    # 新版世界书字段
+    group: str = ""
+    entry_type: str = "keyword"
+    group_operator: str = "and"
+    chance: int = 100
+    sticky_turns: int = 0
+    cooldown_turns: int = 0
+    order: int = 100
 
 
 class WorldbookSettingsPayload(BaseModel):
@@ -126,6 +138,13 @@ class WorldbookSettingsPayload(BaseModel):
     default_whole_word: bool = False
     default_match_mode: str = "any"
     default_secondary_mode: str = "all"
+
+    # 新版世界书默认字段
+    default_entry_type: str = "keyword"
+    default_group_operator: str = "and"
+    default_chance: int = 100
+    default_sticky_turns: int = 0
+    default_cooldown_turns: int = 0
 
 
 class WorldbookPayload(BaseModel):

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Worldbook Entries - Xuqi LLM Chat</title>
     <link rel="stylesheet" href="/static/styles.css" />
+    <style>
+      .status-line.strong {
+        color: var(--text);
+      }
+    </style>
   </head>
   <body>
     <div class="topbar-stack">
@@ -28,7 +33,7 @@
           <span class="slot-badge">Worldbook</span>
           <div class="slot-meta">
             <strong>当前为全局世界书</strong>
-            <p class="slot-hint">这里维护全局世界书词条。当前这版字段已扩展为更接近酒馆世界书的配置结构。</p>
+            <p class="slot-hint">这里维护全局世界书词条。</p>
           </div>
         </div>
       </div>
@@ -77,8 +82,8 @@
         </div>
 
         <p class="muted helper-text">
-          说明：顺序数值越小越先处理。当前这版文件会把“顺序”同时写入兼容字段 <code>priority</code>，便于和旧后端共存。
-          “常驻”表示该条不依赖关键词；“关键词触发”表示仍依赖主关键词命中。主副组关系中的“与所有/与任意”是主组与副组之间的关系，不是组内别名关系。
+          说明：顺序数值越小越先处理。“常驻”表示该条不依赖关键词；
+          “关键词触发”表示仍依赖主关键词命中。主副组关系中的“与所有/与任意”是主组与副组之间的关系，不是组内别名关系。
         </p>
 
         <div id="worldbook-entry-list" class="memory-list">
@@ -199,11 +204,14 @@
           {% endfor %}
         </div>
       </section>
+      <section class="panel config-panel full-span">
+        <div class="section-head">
+          <p class="eyebrow">Status</p>
+          <h2>当前状态</h2>
+          <p id="status-text" class="muted status-line strong">就绪</p>
+        </div>
+      </section>
     </div>
-
-    <footer class="status-footer">
-      <span id="status-text">就绪</span>
-    </footer>
 
     <template id="worldbook-entry-template">
       <article class="memory-card worldbook-entry-card" data-collapsed="false">
