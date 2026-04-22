@@ -1,4 +1,4 @@
-# Xuqi LLM Chat
+# Fantareal
 
 <p align="center">
   <img src="./assets/preview.png" alt="Xuqi LLM Chat WebUI Preview" width="80%">
